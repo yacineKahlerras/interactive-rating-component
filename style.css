@@ -13,4 +13,90 @@
   --Medium-Grey: hsl(216, 12%, 54%);
   --Dark-Blue: hsl(213, 19%, 18%);
   --Very-Dark-Blue: hsl(216, 12%, 8%);
+  --filled-circle-bg: #262f38;
+  --card-bg: #1c242f;
+  color: var(--White);
+  --filled-circle-width: 3.13rem;
 }
+body {
+  min-height: 100vh;
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+  background: var(--Very-Dark-Blue);
+}
+main {
+  width: 100%;
+  max-width: 27.46rem;
+  background: var(--card-bg);
+  border-radius: 0.8em;
+  padding: 2.26rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+/* 
+====================================
+====================================
+            rating UI 
+====================================
+====================================
+*/
+.rating-ui-container {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: center;
+  gap: 1.5rem;
+  display: none;
+}
+.filled-circle {
+  width: var(--filled-circle-width);
+  height: var(--filled-circle-width);
+  background: var(--filled-circle-bg);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+button {
+  color: var(--Light-Grey);
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: "Overpass", sans-serif;
+}
+.buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+p {
+  color: var(--Light-Grey);
+  font-size: 1rem;
+  font-weight: 400;
+}
+#submit-btn {
+  width: 100%;
+  background: var(--Orange);
+  color: var(--White);
+  font-size: 1rem;
+  padding: 0.6em 0;
+  border-radius: 1.5em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+/* 
+====================================
+====================================
+            success UI 
+====================================
+====================================
+*/
