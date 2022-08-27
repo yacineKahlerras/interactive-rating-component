@@ -78,7 +78,7 @@
 @keyframes slideDown {
   0%,
   100% {
-    -webkit-transform: translate(-50%, -150%);
+    -webkit-transform: translate(-50%, -200%);
   }
   10%,
   90% {
@@ -293,15 +293,15 @@ p {
 #note {
   width: 100%;
   max-width: 15rem;
-  border-radius: 2em;
+  border-radius: 1.5em;
   padding: 1em;
   position: absolute;
   z-index: 2;
-  top: 1.5rem;
+  top: 2.5rem;
   left: 50%;
   background: var(--Orange);
   text-align: center;
-  transform: translate(-50%, -200%);
+  transform: translate(-50%, -300%);
 }
 .note-trigger {
   display: grid;

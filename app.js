@@ -24,7 +24,7 @@ const ratingComplete = () => {
       setTimeout(() => {
         notification.classList.remove("note-trigger");
         natificationActive = false;
-      }, 2500);
+      }, 3000);
     }
     return;
   }
