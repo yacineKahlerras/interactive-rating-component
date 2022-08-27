@@ -2,6 +2,8 @@ const ratingBtns = [...document.querySelectorAll(".rating-btn")];
 const submitBtn = document.getElementById("submit-btn");
 const ratingResult = document.querySelector(".rating-result");
 const mainContainer = document.getElementById("main");
+const notification = document.getElementById("note");
+let natificationActive = false;
 
 /** adds effect to selected rating btn */
 const ratingSelected = (btn) => {
@@ -15,7 +17,17 @@ const ratingSelected = (btn) => {
 /** hides the rating ui and shows the results ui */
 const ratingComplete = () => {
   const selectedRating = document.querySelector(".selected-rating-btn");
-  if (!selectedRating) return;
+  if (!selectedRating) {
+    if (!natificationActive) {
+      notification.classList.add("note-trigger");
+      natificationActive = true;
+      setTimeout(() => {
+        notification.classList.remove("note-trigger");
+        natificationActive = false;
+      }, 2500);
+    }
+    return;
+  }
   showSuccess(true);
 };
 
