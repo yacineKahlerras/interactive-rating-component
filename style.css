@@ -23,6 +23,57 @@
   );
   color: var(--White);
   --filled-circle-width: 3.13rem;
+  --ui-transition: 1.5s ease-in-out;
+}
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+  75% {
+    transform: rotate(-1deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(0, -10%) rotate(3deg);
+  }
+  50% {
+    transform: translate(0, 10%) rotate(-5deg);
+  }
+  75% {
+    transform: translate(0, -10%) rotate(3deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 body {
   min-height: 100vh;
@@ -44,8 +95,16 @@ main {
   align-items: center;
   position: relative;
   gap: 5rem;
-  /* overflow: hidden; */
-  box-shadow: inset 0 -10rem 30rem #00000077;
+  overflow: hidden;
+  box-shadow: inset 0 -10rem 30rem #00000050;
+}
+.show-success .rating-ui-container {
+  transform: translateY(-120%);
+  opacity: 0;
+}
+.show-success .success-container {
+  transform: translateY(-115%);
+  opacity: 1;
 }
 /* 
 ====================================
@@ -59,7 +118,7 @@ main {
   flex-direction: column;
   align-items: baseline;
   justify-content: baseline;
-  /* display: none; */
+  transition: var(--ui-transition);
 }
 .filled-circle {
   width: var(--filled-circle-width);
@@ -69,7 +128,18 @@ main {
   display: grid;
   place-items: center;
   margin-bottom: 2.26rem;
+  transition: 0.5s ease-in;
 }
+.filled-circle:hover {
+  background: var(--rating-btn-hover-bg);
+  animation: rotating 2s linear infinite;
+  cursor: pointer;
+}
+.filled-circle:hover svg path {
+  fill: var(--White);
+  transition: 0.5s ease-in;
+}
+/* rating btns */
 .rating-btn {
   width: var(--filled-circle-width);
   height: var(--filled-circle-width);
@@ -85,7 +155,8 @@ main {
 .rating-btn:active {
   background: var(--Orange);
 }
-.selected-rating-btn {
+.selected-rating-btn,
+.selected-rating-btn:hover {
   background: var(--Orange);
   color: var(--White);
 }
@@ -105,6 +176,7 @@ button {
   justify-content: space-between;
   margin-bottom: 2.06rem;
 }
+/* texts */
 h1 {
   font-size: 1.66rem;
   font-weight: 700;
@@ -116,6 +188,7 @@ p {
   font-weight: 400;
   margin-bottom: 1.86rem;
 }
+/* submit btn */
 #submit-btn {
   width: 100%;
   height: 3rem;
@@ -159,10 +232,13 @@ p {
   justify-content: center;
   text-align: center;
   padding: 1rem 0.3rem;
-  display: none;
+  transition: var(--ui-transition);
+  opacity: 0;
 }
 .success-container img {
   margin-bottom: 2rem;
+  animation: float 30s;
+  animation-iteration-count: infinite;
 }
 .rating-result {
   color: var(--Orange);
@@ -170,7 +246,23 @@ p {
   padding: 0.5em 1em;
   border-radius: 1em;
   margin-bottom: 2.26rem;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.rating-result:hover {
+  background: var(--White);
+  font-weight: 700;
+  animation: shake 2s;
+  animation-iteration-count: infinite;
 }
 .success-container h1 {
   margin-bottom: 0.6rem;
+}
+@media (max-width: 19.33em) {
+  :root {
+    font-size: max(4.48vw, 10px);
+  }
+  .success-container img {
+    width: 60%;
+  }
 }
