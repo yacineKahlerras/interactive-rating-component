@@ -15,6 +15,7 @@
   --Very-Dark-Blue: hsl(216, 12%, 8%);
   --transparent-bg: rgba(255, 255, 255, 0.055);
   --filled-circle-bg: #262f38;
+  --rating-btn-hover-bg: rgba(255, 255, 255, 0.15);
   --card-bg: linear-gradient(
     to bottom,
     var(--Dark-Blue),
@@ -58,7 +59,7 @@ main {
   flex-direction: column;
   align-items: baseline;
   justify-content: baseline;
-  display: none;
+  /* display: none; */
 }
 .filled-circle {
   width: var(--filled-circle-width);
@@ -77,6 +78,17 @@ main {
   display: grid;
   place-items: center;
 }
+.rating-btn:hover {
+  background: var(--rating-btn-hover-bg);
+  color: var(--White);
+}
+.rating-btn:active {
+  background: var(--Orange);
+}
+.selected-rating-btn {
+  background: var(--Orange);
+  color: var(--White);
+}
 button {
   color: var(--Light-Grey);
   background: transparent;
@@ -84,6 +96,8 @@ button {
   font-size: 15px;
   font-weight: 700;
   font-family: "Overpass", sans-serif;
+  cursor: pointer;
+  transition: 0.5s;
 }
 .buttons-container {
   width: 100%;
@@ -92,7 +106,7 @@ button {
   margin-bottom: 2.06rem;
 }
 h1 {
-  font-size: 1.5rem;
+  font-size: 1.66rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
@@ -112,6 +126,24 @@ p {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 400;
+  position: relative;
+}
+#submit-btn:active {
+  background: var(--White);
+  color: var(--Orange);
+}
+#submit-btn:hover:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1.5em;
+}
+#submit-btn:active:after {
+  display: none;
 }
 /* 
 ====================================
@@ -125,13 +157,20 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
   text-align: center;
-  /* display: none; */
+  padding: 1rem 0.3rem;
+  display: none;
+}
+.success-container img {
+  margin-bottom: 2rem;
 }
 .rating-result {
   color: var(--Orange);
   background: var(--transparent-bg);
   padding: 0.5em 1em;
   border-radius: 1em;
+  margin-bottom: 2.26rem;
+}
+.success-container h1 {
+  margin-bottom: 0.6rem;
 }
