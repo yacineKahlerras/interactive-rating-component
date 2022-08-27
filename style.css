@@ -294,13 +294,15 @@ p {
 #note {
   width: 100%;
   max-width: 15rem;
-  border-radius: 0.5em;
+  border-radius: 0.3em;
   padding: 1em;
   position: absolute;
   z-index: 2;
   top: 50%;
   left: 50%;
   background: var(--Orange);
+  color: var(--White);
+  font-weight: 700;
   text-align: center;
   transform: translate(-50%, -50%);
   z-index: 1;
