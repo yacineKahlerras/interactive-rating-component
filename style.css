@@ -258,11 +258,16 @@ p {
 .success-container h1 {
   margin-bottom: 0.6rem;
 }
-@media (max-width: 19.33em) {
+@media (max-width: 26.67em) {
   :root {
     font-size: max(4.48vw, 10px);
+    --filled-circle-width: 2.5rem;
   }
   .success-container img {
     width: 60%;
+  }
+  main {
+    max-height: 28rem;
+    padding: 2.06rem 1.5rem;
   }
 }
