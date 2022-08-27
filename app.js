@@ -18,11 +18,17 @@ const ratingSelected = (btn) => {
 const ratingComplete = () => {
   const selectedRating = document.querySelector(".selected-rating-btn");
   if (!selectedRating) {
+    const mainRect = mainContainer.getBoundingClientRect();
+
     if (!natificationActive) {
-      notification.classList.add("note-trigger");
+      notification.style.top = `${mainRect.top}px`;
+      notification.style.transform = `translate(-50%, -110%)`;
+      // notification.classList.add("note-trigger");
       natificationActive = true;
       setTimeout(() => {
-        notification.classList.remove("note-trigger");
+        notification.style.top = "50%";
+        notification.style.transform = `translate(-50%, -50%)`;
+        // notification.classList.remove("note-trigger");
         natificationActive = false;
       }, 3000);
     }
